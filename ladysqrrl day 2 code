@@ -15,16 +15,20 @@ int main()
         length = arr[i];
         width = arr[i + 1];
         height = arr[i + 2];
-        
-        area = ((length * width) * 2) + ((width * height) *2) + ((height * length) * 2);
+
+        int sideOne, sideTwo, sideThree;
+        sideOne = (length * width);
+        sideTwo = (width * height);
+        sideThree = (height * length);
+        area = (sideOne * 2) + (sideTwo * 2) + (sideThree * 2);
         sum += area;
 
-        if (length <= width && length <= height)
-            spare += (length * width) * 2;
-        else if (width < length && width <= height)
-            spare += ((width * height) * 2);
-        else if (height < length && height < width)
-            spare += ((height * length) * 2);
+        if (sideOne <= sideTwo && sideOne <= sideThree)
+            spare += sideOne;
+        else if (sideTwo < sideOne && sideTwo <= sideThree)
+            spare += sideTwo;
+        else if (sideThree < sideTwo && sideThree < sideOne)
+            spare += sideThree;
     }
 
     total = sum + spare;
